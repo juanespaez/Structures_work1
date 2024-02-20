@@ -21,7 +21,7 @@ class SimuladorFila:
                 if persona.obtener_llegada() <= tiempo:
                     for agente in agentes:
                         if agente.libre == True:
-                            agente.atender(persona)
+                            agente.atender(persona, tiempo)
                             tiempo_espera.append(persona.espera)
                             self.personas.eliminar()
                         else:
