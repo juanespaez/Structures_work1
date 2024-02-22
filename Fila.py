@@ -1,3 +1,6 @@
+import Persona
+
+
 class Fila:
 
     def __init__(self, personas: list[Persona]):

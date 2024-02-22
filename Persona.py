@@ -3,14 +3,12 @@ import random
 
 class Persona:
 
-    contador_id = 0
-
-    def __init__(self, llegada):
+    def __init__(self, llegada, id=0, servicio=random.randint(5, 60)):
         # Id consecutivo
-        Persona.contador_id += 1
-        self.__id = Persona.contador_id
-        self.__llegada = llegada
-        self.__servicio = random.randint(300, 3600)
+
+        self.__id = id
+        self.__llegada = llegada*60
+        self.__servicio = servicio * 60
         self.atendido = False
         self.espera = 0
 
@@ -20,5 +18,5 @@ class Persona:
     def obtener_llegada(self):
         return self.__llegada
 
-    def incrementar(self):
-        self.espera += 1
+    def tiempo_espera(self, tiempo: int):
+        self.espera = tiempo - self.__llegada
